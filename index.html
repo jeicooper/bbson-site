@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>BBSON Technology, Inc.</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            steel:        '#1B2A4A',
+            'steel-light':'#253761',
+            silver:       '#C8CDD6',
+            accent:       '#2563EB',
+            'accent-light':'#3B82F6',
+            charcoal:     '#2D3748',
+            surface:      '#F7F8FA',
+          },
+          fontFamily: {
+            display: ['"Barlow Condensed"', 'sans-serif'],
+            body:    ['"Inter"',            'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Custom stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-steel shadow-md">
+    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
+
+      <!-- Wordmark -->
+      <a href="#home" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded bg-accent flex items-center justify-center">
+          <span class="font-display font-800 text-white text-sm tracking-widest leading-none">B</span>
+        </div>
+        <span class="font-display font-bold text-white text-xl tracking-wide uppercase">BBSON Technology</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="#about"    class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#quality"  class="nav-link">Quality</a>
+        <a href="#clients"  class="nav-link">Clients</a>
+        <a href="#machines" class="nav-link">Equipment</a>
+        <a href="#contact"  class="nav-link btn-cta">Contact Us</a>
+      </nav>
+
+      <!-- Hamburger -->
+      <button id="menu-toggle" aria-label="Toggle menu" class="md:hidden text-silver focus:outline-none">
+        <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-steel-light border-t border-white/10">
+      <nav class="flex flex-col px-5 py-4 gap-4">
+        <a href="#about"    class="nav-link" onclick="closeMobileMenu()">About</a>
+        <a href="#services" class="nav-link" onclick="closeMobileMenu()">Services</a>
+        <a href="#quality"  class="nav-link" onclick="closeMobileMenu()">Quality</a>
+        <a href="#clients"  class="nav-link" onclick="closeMobileMenu()">Clients</a>
+        <a href="#machines" class="nav-link" onclick="closeMobileMenu()">Equipment</a>
+        <a href="#contact"  class="nav-link" onclick="closeMobileMenu()">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section id="home" class="hero-bg min-h-screen flex items-center pt-16">
+    <div class="max-w-6xl mx-auto px-5 py-24 md:py-32">
+      <p class="font-body text-accent-light text-sm font-medium tracking-widest uppercase mb-4">
+        PEZA-Registered Enterprise · Est. 2005
+      </p>
+      <h1 class="font-display font-extrabold text-white text-5xl md:text-7xl lg:text-8xl leading-none uppercase mb-6 max-w-3xl">
+        Precision<br/>Spray<br/>Coating
+      </h1>
+      <p class="font-body text-silver text-lg md:text-xl max-w-xl leading-relaxed mb-10">
+        Metal and plastic spray painting solutions for electronics and industrial manufacturing —
+        built on consistency, quality, and over 18 years of expertise.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#services"
+           class="bg-accent hover:bg-accent-light text-white font-body font-semibold px-7 py-3 rounded transition-colors">
+          Our Services
+        </a>
+        <a href="#contact"
+           class="border border-silver/40 hover:border-silver text-silver hover:text-white font-body font-medium px-7 py-3 rounded transition-colors">
+          Get in Touch
+        </a>
+      </div>
+
+      <!-- Quick stats -->
+      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-white/10 pt-10">
+        <div>
+          <p class="font-display font-bold text-white text-4xl">2005</p>
+          <p class="font-body text-silver text-sm mt-1">Year Founded</p>
+        </div>
+        <div>
+          <p class="font-display font-bold text-white text-4xl">1,008</p>
+          <p class="font-body text-silver text-sm mt-1">sq.m. Plant Area</p>
+        </div>
+        <div>
+          <p class="font-display font-bold text-white text-4xl">PEZA</p>
+          <p class="font-body text-silver text-sm mt-1">Registered Enterprise</p>
+        </div>
+        <div>
+          <p class="font-display font-bold text-white text-4xl">3+</p>
+          <p class="font-body text-silver text-sm mt-1">Key Industry Clients</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════════ -->
+  <section id="about" class="bg-white py-24">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="grid md:grid-cols-2 gap-16 items-start">
+
+        <div>
+          <div class="section-rule"></div>
+          <h2 class="font-display font-bold text-steel text-4xl md:text-5xl uppercase mb-6">About the Company</h2>
+          <p class="font-body text-charcoal leading-relaxed mb-4">
+            <strong>BBSON Technology, Inc.</strong> was incorporated on June 7, 2005 as a domestic corporation
+            registered with the Philippine Economic Zone Authority (PEZA) as a zone export enterprise
+            under Presidential Decree No. 66.
+          </p>
+          <p class="font-body text-charcoal leading-relaxed mb-4">
+            The company is authorized to engage in the manufacturing, assembling, importing, buying,
+            and selling of goods related to metal and plastic spray painting, and electronic components —
+            including all equipment, materials, and supplies used in the production of finished products.
+          </p>
+          <p class="font-body text-charcoal leading-relaxed">
+            As a PEZA-registered enterprise, BBSON is entitled to income tax holidays and incentives
+            provided by the Philippine government. Our rapid growth is driven by well-trained personnel
+            and a commitment to delivering consistent quality to every client.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-5">
+          <div class="info-card bg-surface border border-silver/40 rounded-lg p-6">
+            <p class="font-body text-xs text-accent font-semibold uppercase tracking-widest mb-3">General Information</p>
+            <dl class="font-body text-sm text-charcoal space-y-2.5">
+              <div class="flex gap-3">
+                <dt class="text-steel font-semibold w-28 shrink-0">President</dt>
+                <dd>Mr. Bok Be Son</dd>
+              </div>
+              <div class="flex gap-3">
+                <dt class="text-steel font-semibold w-28 shrink-0">Ownership</dt>
+                <dd>Korean</dd>
+              </div>
+              <div class="flex gap-3">
+                <dt class="text-steel font-semibold w-28 shrink-0">SEC Reg.</dt>
+                <dd>CS200509966</dd>
+              </div>
+              <div class="flex gap-3">
+                <dt class="text-steel font-semibold w-28 shrink-0">PEZA Reg.</dt>
+                <dd>05-39</dd>
+              </div>
+              <div class="flex gap-3">
+                <dt class="text-steel font-semibold w-28 shrink-0">Plant Area</dt>
+                <dd>1,008 sq. meters</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="info-card bg-steel rounded-lg p-6 text-silver">
+            <p class="font-body text-xs text-accent-light font-semibold uppercase tracking-widest mb-3">Location</p>
+            <p class="font-body text-sm leading-relaxed">
+              Vital Industrial Properties Inc.<br/>
+              Bldg. B, Unit No. 1<br/>
+              FCIE/PEZA Compound, Governors Drive<br/>
+              Brgy. Langkaan, Dasmariñas, Cavite
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES
+  ═══════════════════════════════════════════ -->
+  <section id="services" class="bg-surface py-24 border-t border-silver/30">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="section-rule"></div>
+      <h2 class="font-display font-bold text-steel text-4xl md:text-5xl uppercase mb-4">What We Do</h2>
+      <p class="font-body text-charcoal max-w-xl mb-14">
+        Specialized coating services for industrial and electronic product manufacturers,
+        focused on surface quality and process consistency.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="info-card bg-white border border-silver/40 rounded-lg p-7">
+          <div class="w-10 h-10 rounded bg-accent/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-steel text-2xl uppercase mb-3">Metal Spray Painting</h3>
+          <p class="font-body text-sm text-charcoal leading-relaxed">
+            Powder coat and spray paint application on metal components using Korean-manufactured
+            precision equipment to ensure uniform coating coverage.
+          </p>
+        </div>
+
+        <div class="info-card bg-white border border-silver/40 rounded-lg p-7">
+          <div class="w-10 h-10 rounded bg-accent/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-steel text-2xl uppercase mb-3">Plastic Spray Painting</h3>
+          <p class="font-body text-sm text-charcoal leading-relaxed">
+            Surface coating for plastic parts and sub-components used in electronics and related
+            assemblies, with attention to adhesion and finish quality.
+          </p>
+        </div>
+
+        <div class="info-card bg-white border border-silver/40 rounded-lg p-7">
+          <div class="w-10 h-10 rounded bg-accent/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-steel text-2xl uppercase mb-3">Component Fabrication</h3>
+          <p class="font-body text-sm text-charcoal leading-relaxed">
+            Supporting fabrication operations including drilling and tapping for metal and electronic
+            sub-components, integrated within the coating workflow.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       QUALITY POLICY
+  ═══════════════════════════════════════════ -->
+  <section id="quality" class="bg-steel py-24">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="grid md:grid-cols-2 gap-16 items-start">
+
+        <div>
+          <div class="section-rule"></div>
+          <h2 class="font-display font-bold text-white text-4xl md:text-5xl uppercase mb-6">Quality Policy</h2>
+          <p class="font-body text-silver leading-relaxed mb-6">
+            BBSON Technology, Inc., as proficient in metal and plastic spray painting, shall manufacture
+            products of consistent quality. We provide client satisfaction by meeting the agreed
+            requirements for every product we deliver.
+          </p>
+          <p class="font-body text-silver/70 text-sm leading-relaxed">
+            All personnel play a part in achieving our quality objectives. Each one of us is committed
+            to achieving quality with all our heart, with all our mind, and with all our might.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <p class="font-body text-xs text-accent-light font-semibold uppercase tracking-widest mb-2">Our Commitments</p>
+
+          <div class="flex gap-4 items-start">
+            <div class="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0"></div>
+            <p class="font-body text-silver text-sm leading-relaxed">Understand and define customer requirements</p>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0"></div>
+            <p class="font-body text-silver text-sm leading-relaxed">Continuously train and retrain our operating personnel</p>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0"></div>
+            <p class="font-body text-silver text-sm leading-relaxed">Keep abreast of current developments in technology and upgrade manufacturing facilities</p>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0"></div>
+            <p class="font-body text-silver text-sm leading-relaxed">Strictly implement quality control, operating procedures, systems, and methods</p>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0"></div>
+            <p class="font-body text-silver text-sm leading-relaxed">Continuously review and improve our system to achieve excellence</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       CLIENTS
+  ═══════════════════════════════════════════ -->
+  <section id="clients" class="bg-white py-24 border-t border-silver/30">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="section-rule"></div>
+      <h2 class="font-display font-bold text-steel text-4xl md:text-5xl uppercase mb-4">Our Clients</h2>
+      <p class="font-body text-charcoal max-w-xl mb-12">
+        Trusted by manufacturers across Cavite and Laguna's industrial zones.
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm font-body table-stripe rounded-lg overflow-hidden">
+          <thead>
+            <tr class="bg-steel text-white">
+              <th class="text-left px-5 py-3.5 font-semibold">#</th>
+              <th class="text-left px-5 py-3.5 font-semibold">Company Name</th>
+              <th class="text-left px-5 py-3.5 font-semibold">Location</th>
+            </tr>
+          </thead>
+          <tbody class="text-charcoal">
+            <tr>
+              <td class="px-5 py-3.5 text-steel font-semibold">1</td>
+              <td class="px-5 py-3.5">Taesung Phils., Inc.</td>
+              <td class="px-5 py-3.5">EPZA, Rosario, Cavite</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-3.5 text-silver"></td>
+              <td class="px-5 py-3.5 pl-8 text-charcoal/70">— APC</td>
+              <td class="px-5 py-3.5 text-charcoal/70">EPZA, Rosario, Cavite</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-3.5 text-silver"></td>
+              <td class="px-5 py-3.5 pl-8 text-charcoal/70">— PTTI</td>
+              <td class="px-5 py-3.5 text-charcoal/70">FCIE, Dasmariñas, Cavite</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-3.5 text-steel font-semibold">2</td>
+              <td class="px-5 py-3.5">Arktech Phils.</td>
+              <td class="px-5 py-3.5">Carmelray II, Calamba, Laguna</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-3.5 text-steel font-semibold">3</td>
+              <td class="px-5 py-3.5">Hiblow Phils. Inc.</td>
+              <td class="px-5 py-3.5">FCIE, Dasmariñas, Cavite</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       EQUIPMENT
+  ═══════════════════════════════════════════ -->
+  <section id="machines" class="bg-surface py-24 border-t border-silver/30">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="section-rule"></div>
+      <h2 class="font-display font-bold text-steel text-4xl md:text-5xl uppercase mb-4">Equipment</h2>
+      <p class="font-body text-charcoal max-w-xl mb-12">
+        Korean-manufactured machinery maintained to support consistent production output.
+      </p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="info-card bg-white border border-silver/40 rounded-lg p-6">
+          <p class="font-display font-bold text-steel text-2xl uppercase mb-1">Powder Paint Spray</p>
+          <p class="font-body text-sm text-charcoal/60 mb-3">3 Sets · 2012 Model</p>
+          <p class="font-body text-xs text-accent font-semibold uppercase tracking-widest">Made in Korea</p>
+        </div>
+
+        <div class="info-card bg-white border border-silver/40 rounded-lg p-6">
+          <p class="font-display font-bold text-steel text-2xl uppercase mb-1">Powder Paint Oven Dry</p>
+          <p class="font-body text-sm text-charcoal/60 mb-3">1 Set · 2005 Model</p>
+          <p class="font-body text-xs text-accent font-semibold uppercase tracking-widest">Made in Korea</p>
+        </div>
+
+        <div class="info-card bg-white border border-silver/40 rounded-lg p-6">
+          <p class="font-display font-bold text-steel text-2xl uppercase mb-1">Compressor 15HP</p>
+          <p class="font-body text-sm text-charcoal/60 mb-3">1 Set · 2005 Model</p>
+          <p class="font-body text-xs text-accent font-semibold uppercase tracking-widest">Made in Korea</p>
+        </div>
+
+        <div class="info-card bg-white border border-silver/40 rounded-lg p-6">
+          <p class="font-display font-bold text-steel text-2xl uppercase mb-1">Air Dry and Cooler</p>
+          <p class="font-body text-sm text-charcoal/60 mb-3">1 Set · 2005 Model</p>
+          <p class="font-body text-xs text-accent font-semibold uppercase tracking-widest">Made in Korea</p>
+        </div>
+
+        <div class="info-card bg-white border border-silver/40 rounded-lg p-6">
+          <p class="font-display font-bold text-steel text-2xl uppercase mb-1">Drilling Machine</p>
+          <p class="font-body text-sm text-charcoal/60 mb-3">3 Sets · 2007 Model</p>
+        </div>
+
+        <div class="info-card bg-white border border-silver/40 rounded-lg p-6">
+          <p class="font-display font-bold text-steel text-2xl uppercase mb-1">Tapping Machine</p>
+          <p class="font-body text-sm text-charcoal/60 mb-3">2 Sets · 2007 Model</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════ -->
+  <section id="contact" class="bg-white py-24 border-t border-silver/30">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="section-rule"></div>
+      <h2 class="font-display font-bold text-steel text-4xl md:text-5xl uppercase mb-4">Contact Us</h2>
+      <p class="font-body text-charcoal max-w-xl mb-14">
+        Reach out for inquiries about our services, capabilities, or to request a quotation.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-10">
+
+        <!-- Contact details -->
+        <div class="flex flex-col gap-6">
+
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded bg-surface border border-silver/40 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-body font-semibold text-steel text-sm mb-1">Address</p>
+              <p class="font-body text-sm text-charcoal leading-relaxed">
+                Vital Industrial Properties Inc., Bldg. B Unit No. 1<br/>
+                FCIE/PEZA Compound, Governors Drive<br/>
+                Brgy. Langkaan, Dasmariñas, Cavite
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded bg-surface border border-silver/40 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-body font-semibold text-steel text-sm mb-1">Telephone</p>
+              <p class="font-body text-sm text-charcoal">(046) 402-09-56 to 58</p>
+              <p class="font-body text-sm text-charcoal/60 text-xs mt-0.5">Fax: (046) 402-09-57</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded bg-surface border border-silver/40 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-body font-semibold text-steel text-sm mb-1">Email</p>
+              <a href="mailto:bogison@empal.com"      class="font-body text-sm text-accent hover:underline block">bogison@empal.com</a>
+              <a href="mailto:tessmarie_m@yahoo.com"  class="font-body text-sm text-accent hover:underline block mt-0.5">tessmarie_m@yahoo.com</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Inquiry form -->
+        <div class="bg-surface border border-silver/40 rounded-lg p-7">
+          <p class="font-display font-bold text-steel text-xl uppercase mb-5">Send an Inquiry</p>
+
+          <div id="form-success" class="hidden bg-accent/10 border border-accent/30 rounded p-4 mb-5">
+            <p class="font-body text-sm text-accent font-semibold">Message sent. We'll get back to you shortly.</p>
+          </div>
+
+          <form id="inquiry-form" class="flex flex-col gap-4" novalidate>
+            <div>
+              <label class="font-body text-xs font-semibold text-steel uppercase tracking-widest block mb-1.5" for="name">Full Name</label>
+              <input id="name" type="text" placeholder="Juan dela Cruz" class="form-input" />
+            </div>
+            <div>
+              <label class="font-body text-xs font-semibold text-steel uppercase tracking-widest block mb-1.5" for="email">Email Address</label>
+              <input id="email" type="email" placeholder="juan@company.com" class="form-input" />
+            </div>
+            <div>
+              <label class="font-body text-xs font-semibold text-steel uppercase tracking-widest block mb-1.5" for="company">Company (optional)</label>
+              <input id="company" type="text" placeholder="Your company name" class="form-input" />
+            </div>
+            <div>
+              <label class="font-body text-xs font-semibold text-steel uppercase tracking-widest block mb-1.5" for="message">Message</label>
+              <textarea id="message" rows="4" placeholder="Describe what you need..." class="form-input" style="resize:none;"></textarea>
+            </div>
+            <button type="submit"
+              class="bg-accent hover:bg-accent-light text-white font-body font-semibold text-sm px-6 py-3 rounded transition-colors mt-1">
+              Send Inquiry
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="bg-steel py-10 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded bg-accent flex items-center justify-center">
+          <span class="font-display font-bold text-white text-xs leading-none">B</span>
+        </div>
+        <span class="font-display font-bold text-white uppercase tracking-wide">BBSON Technology, Inc.</span>
+      </div>
+      <p class="font-body text-silver/50 text-xs text-center">
+        © 2005–<span id="year"></span> BBSON Technology, Inc. · FCIE/PEZA, Dasmariñas, Cavite · All rights reserved.
+      </p>
+      <nav class="flex gap-5">
+        <a href="#about"    class="font-body text-silver/50 hover:text-silver text-xs transition-colors">About</a>
+        <a href="#services" class="font-body text-silver/50 hover:text-silver text-xs transition-colors">Services</a>
+        <a href="#contact"  class="font-body text-silver/50 hover:text-silver text-xs transition-colors">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Custom JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
