@@ -29,7 +29,7 @@ window.addEventListener('scroll', () => {
 /* ─── Inquiry form → emailed via Web3Forms ─────────────── */
 // 1) Get a free access key at https://web3forms.com (enter the company email that should receive inquiries)
 // 2) Paste it below
-const WEB3FORMS_ACCESS_KEY = '71442a3b-bdfc-415b-954f-eee18c184824';
+const WEB3FORMS_ACCESS_KEY = '8c0885f9-ddc7-4b65-9dd4-7099a23a859b';
 
 const inquiryForm = document.getElementById('inquiry-form');
 const submitBtn   = document.getElementById('submit-btn');
