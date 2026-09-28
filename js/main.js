@@ -26,29 +26,75 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('shadow-lg', window.scrollY > 10);
 });
 
-/* ─── Inquiry form (client-side only) ──────────────────── */
-document.getElementById('inquiry-form').addEventListener('submit', function (e) {
+/* ─── Inquiry form → emailed via Web3Forms ─────────────── */
+// 1) Get a free access key at https://web3forms.com (enter the company email that should receive inquiries)
+// 2) Paste it below
+const WEB3FORMS_ACCESS_KEY = '8c04b69e-c11e-458f-9e7e-7f923b23ce64';
+
+const inquiryForm = document.getElementById('inquiry-form');
+const submitBtn   = document.getElementById('submit-btn');
+const formSuccess = document.getElementById('form-success');
+const formError   = document.getElementById('form-error');
+
+function flash(el) {
+  el.classList.remove('hidden');
+  setTimeout(() => el.classList.add('hidden'), 6000);
+}
+
+inquiryForm.addEventListener('submit', async function (e) {
   e.preventDefault();
+  formSuccess.classList.add('hidden');
+  formError.classList.add('hidden');
 
   const name    = document.getElementById('name').value.trim();
   const email   = document.getElementById('email').value.trim();
+  const company = document.getElementById('company').value.trim();
   const message = document.getElementById('message').value.trim();
-  const success = document.getElementById('form-success');
 
   if (!name || !email || !message) {
     alert('Please fill in your name, email, and message.');
     return;
   }
-
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     alert('Please enter a valid email address.');
     return;
   }
 
-  // Show success message (wire up to an email service later e.g. EmailJS / Formspree)
-  this.reset();
-  success.classList.remove('hidden');
-  setTimeout(() => success.classList.add('hidden'), 5000);
+  const originalLabel = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject:    'New website inquiry from ' + name,
+        from_name:  'BBSON Website',
+        name,
+        email,                       // used as the reply-to address
+        company:    company || '-',
+        message,
+        botcheck:   document.getElementById('botcheck').checked
+      })
+    });
+    const data = await res.json();
+
+    if (res.ok && data.success) {
+      inquiryForm.reset();
+      flash(formSuccess);
+    } else {
+      console.error('Form error:', data);
+      flash(formError);
+    }
+  } catch (err) {
+    console.error('Form error:', err);
+    flash(formError);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalLabel;
+  }
 });
 
 /* ─── Client carousel: duplicate cards for a seamless loop ─ */
