@@ -14,18 +14,41 @@ body {
 
 /* ─── Hero background ───────────────────────────────────── */
 .hero-bg {
-  background-color: #0B3D0B;
+  position: relative;
+  background-color: #1B7A26; /* fallback if image fails to load */
   background-image:
-    linear-gradient(135deg, rgba(31,138,42,0.15) 0%, transparent 60%),
-    repeating-linear-gradient(
-       45deg, transparent, transparent 40px,
-       rgba(203,216,203,0.04) 40px, rgba(203,216,203,0.04) 41px
-    ),
-    repeating-linear-gradient(
-      -45deg, transparent, transparent 40px,
-       rgba(203,216,203,0.04) 40px, rgba(203,216,203,0.04) 41px
-    );
+    /* main spray cloud, densest at the left edge */
+    radial-gradient(ellipse 75% 130% at 0% 50%,
+      rgba(11,61,11,0.96) 0%,
+      rgba(27,122,38,0.88) 30%,
+      rgba(27,122,38,0.50) 55%,
+      rgba(27,122,38,0.12) 78%,
+      transparent 92%),
+    /* secondary puffs for an uneven, hand-sprayed feel */
+    radial-gradient(circle at 32% 18%, rgba(92,196,63,0.35) 0%, transparent 38%),
+    radial-gradient(circle at 38% 88%, rgba(11,61,11,0.55) 0%, transparent 42%),
+    radial-gradient(circle at 55% 45%, rgba(27,122,38,0.30) 0%, transparent 30%),
+    url('../images/building.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+/* Overspray speckle: fine paint droplets, concentrated around the spray edge */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.11 0 0 0 0 0.48 0 0 0 0 0.15 0 0 0 9 -4.6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  -webkit-mask-image: radial-gradient(ellipse 80% 130% at 0% 50%, #000 25%, transparent 85%);
+          mask-image: radial-gradient(ellipse 80% 130% at 0% 50%, #000 25%, transparent 85%);
+}
+
+/* Keep hero content above the speckle layer */
+.hero-bg > * { position: relative; z-index: 1; }
+
+
 
 /* ─── Section rule ──────────────────────────────────────── */
 .section-rule {
