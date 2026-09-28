@@ -50,3 +50,14 @@ document.getElementById('inquiry-form').addEventListener('submit', function (e) 
   success.classList.remove('hidden');
   setTimeout(() => success.classList.add('hidden'), 5000);
 });
+
+/* ─── Client carousel: duplicate cards for a seamless loop ─ */
+(function () {
+  const track = document.getElementById('client-track');
+  if (!track) return;
+  Array.from(track.children).forEach(card => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
+  });
+})();

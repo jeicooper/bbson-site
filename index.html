@@ -325,43 +325,45 @@
         Trusted by manufacturers across Cavite and Laguna's industrial zones.
       </p>
 
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm font-body table-stripe rounded-lg overflow-hidden">
-          <thead>
-            <tr class="bg-steel text-white">
-              <th class="text-left px-5 py-3.5 font-semibold">#</th>
-              <th class="text-left px-5 py-3.5 font-semibold">Company Name</th>
-              <th class="text-left px-5 py-3.5 font-semibold">Location</th>
-            </tr>
-          </thead>
-          <tbody class="text-charcoal">
-            <tr>
-              <td class="px-5 py-3.5 text-steel font-semibold">1</td>
-              <td class="px-5 py-3.5">Taesung Phils., Inc.</td>
-              <td class="px-5 py-3.5">EPZA, Rosario, Cavite</td>
-            </tr>
-            <tr>
-              <td class="px-5 py-3.5 text-silver"></td>
-              <td class="px-5 py-3.5 pl-8 text-charcoal/70">— APC</td>
-              <td class="px-5 py-3.5 text-charcoal/70">EPZA, Rosario, Cavite</td>
-            </tr>
-            <tr>
-              <td class="px-5 py-3.5 text-silver"></td>
-              <td class="px-5 py-3.5 pl-8 text-charcoal/70">— PTTI</td>
-              <td class="px-5 py-3.5 text-charcoal/70">FCIE, Dasmariñas, Cavite</td>
-            </tr>
-            <tr>
-              <td class="px-5 py-3.5 text-steel font-semibold">2</td>
-              <td class="px-5 py-3.5">Arktech Phils.</td>
-              <td class="px-5 py-3.5">Carmelray II, Calamba, Laguna</td>
-            </tr>
-            <tr>
-              <td class="px-5 py-3.5 text-steel font-semibold">3</td>
-              <td class="px-5 py-3.5">Hiblow Phils. Inc.</td>
-              <td class="px-5 py-3.5">FCIE, Dasmariñas, Cavite</td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Rotating client carousel: put logos in images/clients/ (taesung.png, apc.png, ptti.png, arktech.png, hiblow.png) -->
+      <div class="client-marquee" role="region" aria-label="Our clients">
+        <div class="client-track" id="client-track">
+          <div class="client-card">
+            <div class="client-logo-box">
+              <img src="images/clients/taesung.png" alt="Taesung Phils., Inc. logo" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <span class="client-fallback">Taesung Phils., Inc.</span>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-box">
+              <img src="images/clients/apc.png" alt="APC logo" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <span class="client-fallback">APC (Taesung)</span>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-box">
+              <img src="images/clients/ptti.png" alt="PTTI logo" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <span class="client-fallback">PTTI</span>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-box">
+              <img src="images/clients/arktech.png" alt="Arktech Phils. logo" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <span class="client-fallback">Arktech Phils.</span>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-box">
+              <img src="images/clients/hiblow.png" alt="Hiblow Phils. Inc. logo" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <span class="client-fallback">Hiblow Phils. Inc.</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
