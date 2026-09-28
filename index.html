@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>BBSON Technology, Inc.</title>
+  <link rel="icon" href="images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -41,12 +45,9 @@
   <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-steel shadow-md">
     <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
 
-      <!-- Wordmark -->
-      <a href="#home" class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded bg-accent flex items-center justify-center">
-          <span class="font-display font-800 text-white text-sm tracking-widest leading-none">B</span>
-        </div>
-        <span class="font-display font-bold text-white text-xl tracking-wide uppercase">BBSON Technology</span>
+      <!-- Logo -->
+      <a href="#home" class="flex items-center" aria-label="BBSON Technology, Inc. - Home">
+        <img src="images/logo-light.png" alt="BBSON Technology, Inc." class="h-10 w-auto block" />
       </a>
 
       <!-- Desktop nav -->
@@ -89,7 +90,7 @@
   ═══════════════════════════════════════════ -->
   <section id="home" class="hero-bg min-h-screen flex items-center pt-16">
     <div class="max-w-6xl mx-auto px-5 py-24 md:py-32">
-      <p class="font-body text-[#FFFFFF] text-sm font-medium tracking-widest uppercase mb-4">
+      <p class="font-body text-[#B5F58F] text-sm font-medium tracking-widest uppercase mb-4">
         PEZA-Registered Enterprise · Est. 2005
       </p>
       <h1 class="font-display font-extrabold text-white text-5xl md:text-7xl lg:text-8xl leading-none uppercase mb-6 max-w-3xl">
@@ -521,12 +522,7 @@
   ═══════════════════════════════════════════ -->
   <footer class="bg-steel py-10 border-t border-white/10">
     <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <div class="w-7 h-7 rounded bg-accent flex items-center justify-center">
-          <span class="font-display font-bold text-white text-xs leading-none">B</span>
-        </div>
-        <span class="font-display font-bold text-white uppercase tracking-wide">BBSON Technology, Inc.</span>
-      </div>
+      <img src="images/logo-light.png" alt="BBSON Technology, Inc." class="h-9 w-auto block" />
       <p class="font-body text-silver/50 text-xs text-center">
         © 2005–<span id="year"></span> BBSON Technology, Inc. · FCIE/PEZA, Dasmariñas, Cavite · All rights reserved.
       </p>
